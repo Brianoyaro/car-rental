@@ -1,9 +1,9 @@
-#Car-rental
---
+# Car-rental
+
 This is a car rental application. It allows one to browse for rental cars and select their desireed car, rent it for any number o days from the comfort of their home without having to make long queues or several dozen phone calls. It is created with security in mind and privacy too.
 
 ## Database Structure
---
+
 1. **Users**
 - id, name, email, passwordHash, phoneNumber, role, idNumber, createdAt
 2. **Car**
@@ -14,7 +14,7 @@ This is a car rental application. It allows one to browse for rental cars and se
 - id, bookindId, status, paymentMethod, createdAt
 
 ## User Stories
---
+
 ### Customer
 
 - As a customer, I want to view available cars so that I can choose one to rent.
@@ -46,9 +46,9 @@ Method|Endpoint|Description|Auth Required
 POST	|/api/auth/register	|Create a new user (customer or admin)	|No
 POST	|/api/auth/login	|Login and get JWT	|No
 GET	|/api/auth/me	|Get logged-in user info	|Yes
-POST	/api/auth/logout	|Invalidate token (optional if using stateless JWT)	|Yes
+POST	|/api/auth/logout	|Invalidate token (optional if using stateless JWT)	|Yes
 ### Users
-Method	|Endpoint	"Description	|Auth Required
+Method	|Endpoint	|Description	|Auth Required
 | :-----: | :---------- | :---------: | ----------: |
 GET	|/api/users	|Get all users (Admin only)	|Admin
 GET	|/api/users/:id	|Get specific user profile	|Admin / Owner
