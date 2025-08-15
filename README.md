@@ -1,6 +1,6 @@
 # Car-rental
 
-This is a car rental application. It allows one to browse for rental cars and select their desireed car, rent it for any number o days from the comfort of their home without having to make long queues or several dozen phone calls. It is created with security in mind and privacy too.
+This is a car rental application. It allows one to browse for rental cars and select their desired car, rent it for any number of days from the comfort of their home without having to make long queues or several dozen phone calls. It is created with security in mind and privacy too.
 
 ## Database Structure
 
@@ -53,7 +53,7 @@ Method	|Endpoint	|Description	|Auth Required
 GET	|/api/users	|Get all users (Admin only)	|Admin
 GET	|/api/users/:id	|Get specific user profile	|Admin / Owner
 PUT	|/api/users/:id	|Update user profile	|Admin / Owner
-DELETE	|/api/users/:id	|Delete user	"Admin
+DELETE	|/api/users/:id	|Delete user	|Admin
 ### Cars
 Method	|Endpoint	|Description	|Auth Required
 | :-----: | :---------- | :---------: | ----------: |
