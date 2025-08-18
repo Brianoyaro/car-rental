@@ -53,7 +53,7 @@ exports.login = async (req,res)=>{
 // logout
 exports.logout = async (req,res) =>{
    try {
-    
+        
    } catch (error) {
     
    }

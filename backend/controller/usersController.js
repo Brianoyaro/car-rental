@@ -27,8 +27,17 @@ exports.getUserProfile = async (req,res) => {
 
 exports.updateUserProfile = async (req,res) => {
     try {
-        
+        const {username, email, phoneNumber, idNumber} = req.body;
+        const updatedUser = await User.findByIdAndUpdate(
+            req.params.id,
+            {username, email, phoneNumber, idNumber},
+            {new: true}
+        );
+        if(!updatedUser){
+            return res.status(404).json({message:"User not found"});
+        }
+        res.status(200).json({message:"Profile updated successfully", user: updatedUser});
     } catch (error) {
-        
+        res.status(500).json({message:"Internal server error", error: error.message});
     }
 }
