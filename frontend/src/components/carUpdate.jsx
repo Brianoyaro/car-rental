@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function CarUpdate({ car, onUpdate }) {
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+
   const [formData, setFormData] = useState({
     make: car.make,
     model: car.model,
@@ -34,7 +36,7 @@ export default function CarUpdate({ car, onUpdate }) {
     });
 
     try {
-      const res = await axios.put(`http://localhost:5000/api/cars/${car._id}`, data, {
+      const res = await axios.put(`${backendURL}/${car._id}`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       onUpdate(res.data);

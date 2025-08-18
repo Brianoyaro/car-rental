@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function CarList({ refresh }) {
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/cars").then((res) => setCars(res.data));
+    axios.get(`${backendURL}`).then((res) => setCars(res.data));
   }, [refresh]);
 
   return (

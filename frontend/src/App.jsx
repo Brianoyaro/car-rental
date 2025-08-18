@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import CarUpload from "./CarUpload";
-import CarList from "./CarList";
-import CarDetail from "./CarDetail";
-import CarUpdate from "./CarUpdate";
-import CarDelete from "./CarDelete";
+import CarUpload from "./components/carUpload";
+import CarList from "./components/carList";
+import CarDetail from "./components/carDetail";
+import CarUpdate from "./components/carUpdate";
+import CarDelete from "./components/carDelete";
 
 function App() {
   const [refresh, setRefresh] = useState(false);
@@ -20,7 +20,7 @@ function App() {
 
         {/* Navigation Menu */}
         <nav>
-          <Link to="/">Car List</Link> |{" "}
+          <Link to="/">Car List</Link>
           <Link to="/upload">Upload Car</Link>
         </nav>
 

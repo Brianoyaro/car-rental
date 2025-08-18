@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function CarDetails({ carId, onBack }) {
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
   const [car, setCar] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/cars/${carId}`)
+    axios.get(`${backendURL}/${carId}`)
       .then((res) => setCar(res.data))
       .catch((err) => console.error(err));
   }, [carId]);

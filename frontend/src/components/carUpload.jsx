@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function CarUpload({ onUpload }) {
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+
   const [formData, setFormData] = useState({
     brand: "",
     model: "",
@@ -35,7 +37,7 @@ export default function CarUpload({ onUpload }) {
     });
 
     try {
-      const res = await axios.post("http://localhost:5000/api/cars", data, {
+      const res = await axios.post(`${backendURL}`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       onUpload(res.data); // update parent state
