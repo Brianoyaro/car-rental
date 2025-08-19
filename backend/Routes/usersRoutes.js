@@ -5,7 +5,7 @@ const { authenticate, authorize } = require("../middlewares/authMiddleware");
 const router = express.Router();
 
 // get all users
-router.get("/all", authenticate, authorize, getAllUsers);
+router.get("/all", authenticate, authorize(["admin"]), getAllUsers);
 
 // get user profile by ID
 router.get("/profile/:id", authenticate, getUserProfile);

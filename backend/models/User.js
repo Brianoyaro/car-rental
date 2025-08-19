@@ -9,7 +9,8 @@ const userSchema = mongoose.Schema({
     idNumber: String,
     roles: [{ 
         type: String, 
-        enum: ['admin', 'user',]
+        enum: ['admin', 'user',],
+        default: 'user'
     }],
     createdAt: {
         type: Date,
