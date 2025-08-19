@@ -44,6 +44,7 @@ const SignUp = () => {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+                <h1 className="text-3xl text-blue-600 font-sans font-bold text-center">CAR_RENTAL</h1>
                 <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
                 {error && <p className="text-red-500 mb-4">{error}</p>}
                 <form onSubmit={handleSignUp}>
@@ -52,6 +53,7 @@ const SignUp = () => {
                         <input
                             type="text"
                             id="name"
+                            placeholder="Enter your name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
@@ -63,6 +65,7 @@ const SignUp = () => {
                         <input
                             type="email"
                             id="email"
+                            placeholder="email@example.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -74,6 +77,7 @@ const SignUp = () => {
                         <input
                             type="tel"
                             id="phoneNumber"
+                            placeholder="Enter your phone number"
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
                             required
@@ -85,6 +89,7 @@ const SignUp = () => {
                         <input
                             type="text"
                             id="idNumber"
+                            placeholder="Enter your ID number"
                             value={idNumber}
                             onChange={(e) => setIdNumber(e.target.value)}
                             required
@@ -96,6 +101,7 @@ const SignUp = () => {
                         <input
                             type={showPassword ? "text" : "password"}
                             id="password"
+                            placeholder="Enter your password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
@@ -120,7 +126,7 @@ const SignUp = () => {
                     </button>
                     <p>Already have an account? 
                         <Link to="/login">
-                            Login
+                            <span className="text-blue-600 underline ml-0.5">Login</span>
                         </Link>
                     </p>
                 </form>

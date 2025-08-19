@@ -36,6 +36,7 @@ const Login = () => {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+                <h1 className="text-3xl text-blue-600 font-sans font-bold text-center mb-1">Welcome Back!</h1>
                 <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
                 {error && <p className="text-red-500 mb-4">{error}</p>}
                 <form onSubmit={handleLogin}>
@@ -44,6 +45,7 @@ const Login = () => {
                         <input
                             type="email"
                             id="email"
+                            placeholder="Enter your email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -55,6 +57,7 @@ const Login = () => {
                         <input
                             type={showPassword ? "text" : "password"}
                             id="password"
+                            placeholder="Enter your password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
@@ -76,9 +79,9 @@ const Login = () => {
                         {loading ? "Logging in..." : "Login"}
                     </button>
 
-                    <p>Don't have an account?
+                    <p className="mt-1">Don't have an account?
                         <Link to="/signup">
-                            Signup
+                            <span className="text-red-600 ml-0.5 underline ">Signup</span>
                         </Link>
                     </p>
                 </form>

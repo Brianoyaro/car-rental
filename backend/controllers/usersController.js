@@ -16,7 +16,7 @@ exports.getUserProfile = async (req,res) => {
         const profile = await User.findById(req.params.id);
 
         if(!profile){
-            return res.status(404).json({message:"user profile not found"});
+            return res.status(404).json({message:"user not found"});
         }
 
         req.status(200).json(profile)
