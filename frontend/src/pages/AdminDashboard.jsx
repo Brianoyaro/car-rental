@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 
-const Admin = () => {
+const AdminDashboard = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -34,6 +34,11 @@ const Admin = () => {
     }
 
 
+    return(
+        <div>
+            
+        </div>
+    );
 }
 
-export default Admin;
+export default  AdminDashboard;
