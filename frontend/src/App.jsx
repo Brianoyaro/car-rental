@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes, Router } from "react-router-dom"
 import LoginPage from "./pages/LoginPage"
 import SignUp from "./pages/SignUp"
 import Home from "./pages/Home"
-import ProtectedRoute from "./utils/ProtectedRoute"
+import AdminDashboard from "./pages/AdminDashboard"
 
 
 function App() {
@@ -13,14 +13,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/login" element={<LoginPage/>}/>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <RoleDashboard />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/admin" element={<AdminDashboard />}/>
       </Routes>
     </BrowserRouter>
   )

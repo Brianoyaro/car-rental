@@ -21,7 +21,7 @@ const SignUp = () => {
 
         try {
             const res = await axios.post("http://locolhost:8080/api/auth/register", {
-                username: name,
+                name,
                 email,
                 phoneNumber,
                 idNumber,

@@ -5,7 +5,7 @@ const { generateToken } = require('../utils/generateToken');
 // Register a new user
 exports.registerUser = async (req, res) => {
     try {
-        const {username, email, password, idNumber, phoneNumber } = req.body;
+        const {name, email, password, idNumber, phoneNumber } = req.body;
 
         const existingUser = User.find({email});
         if(existingUser){
@@ -14,7 +14,7 @@ exports.registerUser = async (req, res) => {
 
         const hashed = await bcrypt.hash(password, 10);
 
-        const newUser = new User({username, email, password: hashed, idNumber, phoneNumber})
+        const newUser = new User({name, email, password: hashed, idNumber, phoneNumber})
         await newUser.save;
 
         const token = generateToken(newUser);
