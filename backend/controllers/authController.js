@@ -7,7 +7,7 @@ exports.registerUser = async (req, res) => {
     try {
         const {name, email, password, idNumber, phoneNumber } = req.body;
 
-        const existingUser = User.find({email});
+        const existingUser = User.findOne({email});
         if(existingUser){
             return res.status(400).json({ message: "User already exists" });
         }
@@ -15,7 +15,7 @@ exports.registerUser = async (req, res) => {
         const hashed = await bcrypt.hash(password, 10);
 
         const newUser = new User({name, email, password: hashed, idNumber, phoneNumber})
-        await newUser.save;
+        await newUser.save();
 
         const token = generateToken(newUser);
         res.status(201).json({ user: newUser, token });
@@ -50,7 +50,7 @@ exports.loginUser = async (req,res)=>{
 };
 
 
-// logout
+// logout -- will implement later 
 exports.logoutUser = async (req,res) =>{
    try {
         

@@ -11,7 +11,7 @@ const AdminDashboard = () => {
 
     const load = async () => {
         try {
-           const res = await axios.get("http://locolhost:8080/api/user/all");
+           const res = await axios.get("http://locolhost:5000/api/user/all");
            setUsers(res.data);
         } catch (error) {
             console.error("Error fetching users:", error.message);
@@ -25,7 +25,7 @@ const AdminDashboard = () => {
 
     const handleDelete = async () => {
        try {
-            await axios.delete(`http://locolhost:8080/api/user/delete/${id}`)
+            await axios.delete(`http://locolhost:5000/api/user/delete/${id}`)
             setUsers(prev => prev.filter(user => user._id !== id));
        } catch (error) {
             console.error("Error deleting user:", error.message);
