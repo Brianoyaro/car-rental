@@ -60,6 +60,7 @@ const AdminDashboard = () => {
               <th className="px-4 py-2 border">Phone Number</th>
               <th className="px-4 py-2 border">ID Number</th>
               <th className="px-4 py-2 border">Role</th>
+              <th className="px-4 py-2 border">Actions</th>
             </tr>
           </thead>
           <tbody>

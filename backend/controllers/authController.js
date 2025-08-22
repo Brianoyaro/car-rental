@@ -7,7 +7,8 @@ exports.registerUser = async (req, res) => {
     try {
         const {name, email, password, idNumber, phoneNumber } = req.body;
 
-        const existingUser = User.findOne({email});
+        // checking if user exists
+        const existingUser = await User.findOne({ email });
         if(existingUser){
             return res.status(400).json({ message: "User already exists" });
         }
@@ -58,3 +59,54 @@ exports.logoutUser = async (req,res) =>{
     
    }
 }
+
+// admin signup
+exports.adminSignUp = async (req, res) => {
+    try {
+        const { name, email, password, idNumber, phoneNumber } = req.body;
+
+        // check if user exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: "User already exists" });
+        }
+
+        const hashed = await bcrypt.hash(password, 10);
+
+        const newUser = new User({
+            name,
+            email,
+            password: hashed,
+            idNumber,
+            phoneNumber,
+            role: 'admin' // setting role to admin
+        });
+        await newUser.save();
+
+        const token = generateToken(newUser);
+        res.status(201).json({ user: newUser, token });
+    } catch (error) {
+        res.status(500).json({ message: "Registration failed", error: error.message });
+    }
+};
+
+// admin login
+exports.adminLogin = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        // ensure user is admin 
+        const user = await User.findOne({ email, role: 'admin' });  
+        if (!user) {
+            return res.status(404).json({ message: "Admin not found" });
+        }
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ message: "Incorrect password" });
+        }
+        const token = generateToken(user);
+        res.status(200).json({ message: "Login success", token });
+    } catch (err) {
+        res.status(500).json({ message: "Login failed", error: err.message });
+    }
+};
+

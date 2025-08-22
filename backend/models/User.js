@@ -7,11 +7,11 @@ const userSchema = new mongoose.Schema({
     password: String,
     phoneNumber: String,
     idNumber: String,
-    roles: [{ 
+    role: { 
         type: String, 
         enum: ['admin', 'user',],
         default: 'user'
-    }],
+    },
     createdAt: {
         type: Date,
         default: Date.now

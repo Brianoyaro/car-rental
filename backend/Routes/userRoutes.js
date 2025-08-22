@@ -1,14 +1,14 @@
 const express = require('express');
-const { getAllUsers, getUserProfile, updateUserProfile, deleteUser } = require('../controllers/usersController');
+const { getAllUsers, getUserProfile, updateUserProfile, deleteUser } = require('../controllers/userController');
 const { authenticate, authorize } = require("../middlewares/authMiddleware");
 
 const router = express.Router();
 
 // get all users authorized to admin only
-router.get("/all", authenticate, authorize(["admin"]), getAllUsers);
+router.get("/all", authenticate, authorize(["admin"]),  getAllUsers);
 
 // delete user authorized to admin only
-router.delete("/delete", authenticate, authorize(["admin"]), deleteUser);
+router.delete("/delete/:id", authenticate, authorize(["admin"]), deleteUser);
 
 // get user profile by ID
 router.get("/profile/:id", authenticate, getUserProfile);
@@ -17,3 +17,6 @@ router.get("/profile/:id", authenticate, getUserProfile);
 router.put("/update/:id", authenticate, updateUserProfile);
 
 module.exports = router;
+
+// authenticate, authorize(["admin"]),
+// authenticate, authorize(["admin"]),
