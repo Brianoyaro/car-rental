@@ -40,6 +40,7 @@ export default function CarUpload({ onUpload }) {
       const res = await axios.post(`${backendURL}`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
+      console.log(res)
       onUpload(res.data); // update parent state
     } catch (err) {
       console.error(err);
