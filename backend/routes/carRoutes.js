@@ -34,6 +34,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", upload.array("images", 10), async (req, res) => {
   try {
     const { make, model, manufactureYear, licensePlate, pricePerDay, status } = req.body;
+    console.log(req);
 
     // Cloudinary file paths
     const imageUrls = req.files.map((file) => file.path);
