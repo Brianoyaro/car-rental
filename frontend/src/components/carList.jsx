@@ -7,8 +7,9 @@ export default function CarList({ refresh }) {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    axios.get(`${backendURL}`).then((res) => setCars(res.data));
-    console.log(res)
+    axios.get(`${backendURL}`).then((res) => {
+    console.log(res.data);
+    setCars(res.data)});
   }, [refresh]);
 
   return (
