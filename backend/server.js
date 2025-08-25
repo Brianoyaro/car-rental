@@ -13,7 +13,11 @@ app.use(express.json());
 
 // DB Connection
 const MONGO_URI = process.env.MONGO_URI;
-mongoose.connect(MONGO_URI)
+mongoose.connect(MONGO_URI, {
+  dbName: 'car-rental',
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.error("MongoDB Connection Error:", err));
 
