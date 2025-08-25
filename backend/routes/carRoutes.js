@@ -11,6 +11,7 @@ const upload = require("../middleware/cloudinary"); // multer-cloudinary config
 router.get("/", async (req, res) => {
   try {
     const cars = await Car.find().sort({ createdAt: -1 });
+    console.log(cars);
     res.json(cars);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -22,6 +23,7 @@ router.get("/:id", async (req, res) => {
   try {
     const car = await Car.findById(req.params.id);
     if (!car) return res.status(404).json({ error: "Car not found" });
+    console.log(car);
     res.json(car);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -47,6 +49,7 @@ router.post("/", upload.array("images", 10), async (req, res) => {
     });
 
     const savedCar = await newCar.save();
+    console.log(savedCar);
     res.status(201).json(savedCar);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -75,6 +78,7 @@ router.put("/:id", upload.array("images", 10), async (req, res) => {
     const updatedCar = await Car.findByIdAndUpdate(req.params.id, updateData, { new: true });
     if (!updatedCar) return res.status(404).json({ error: "Car not found" });
 
+    console.log(updatedCar);
     res.json(updatedCar);
   } catch (err) {
     res.status(500).json({ error: err.message });
