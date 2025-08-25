@@ -20,7 +20,7 @@ function App() {
 
         {/* Navigation Menu */}
         <nav>
-          <Link to="/">Car List</Link><br>
+          <Link to="/">Car List</Link>
           <Link to="/upload">Upload Car</Link>
         </nav>
 
