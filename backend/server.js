@@ -12,9 +12,9 @@ app.use(cors());
 app.use(express.json());
 
 // DB Connection
-const MONGO_URI = process.env.MONGO_URI;
-mongoose.connect(MONGO_URI, {
-  dbName: 'car-rental',
+// const MONGO_URI = process.env.MONGO_URI;
+mongoose.connect(process.env.MONGO_URI, {
+  dbName: 'carRental',
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
